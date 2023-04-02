@@ -21,10 +21,10 @@ const TableBody = (props) => {
       <tr key={index}>
         <td>{row.name}</td>
         <td>
-          <a href={row.URL}>{row.URL}</a>
+          <a href={row.url} target="_blank">{row.url}</a>
         </td>
         <td>
-          <button onClick={() => props.removeLink(index)}>Delete</button>
+          <button type="submit" onClick={() => props.removeLink(index)}>Delete</button>
         </td>
       </tr>
     )
@@ -33,10 +33,10 @@ const TableBody = (props) => {
   return <tbody>{rows}</tbody>
 }
 
-const Table = (props) => {
+const Table = ({linkData, removeLink}) => {
   {
     /*TODO - return <table> component, TableHeader and TableBody  and pass props!*/
-    return <table></table>
+    return <table><TableHeader/><TableBody linkData={linkData} removeLink={removeLink}/></table>
   }
 }
 
